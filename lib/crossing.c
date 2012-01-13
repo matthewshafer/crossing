@@ -24,9 +24,6 @@ int crossing_send_notification(crossing_data *data)
 	int r = rand();
 	CURL *handle = curl_easy_init();
 	CURLcode res;
-	const char *fsn = "notification[from_screen_name]=";
-	const char *mess = "&notification[message]=";
-	const char *sid = "&notification[from_remote_service_id]=";
 	const char *from = curl_easy_escape(handle, data->from, strlen(data->from));
 	const char *message = curl_easy_escape(handle, data->message, strlen(data->message));
 	char randomnumberchar[10];
@@ -42,7 +39,6 @@ int crossing_send_notification(crossing_data *data)
 	printf("rand: %s\n", randomnumberchar);
 	printf("rand len: %zi\n", strlen(randomnumberchar));
 	printf("OG rand: %i\n", r);
-	printf("length of consts: %i\n", strlen(fsn) + strlen(mess) + strlen(from) + strlen(sid));
 	
 	str = malloc(sizeof(char) * strlength);
 	
@@ -53,7 +49,7 @@ int crossing_send_notification(crossing_data *data)
 	}
 	
 	// easier than having a bunch of strncat statements.
-	snprintf(str, strlength, "%s%s%s%s%s%s", fsn, from, mess, message, sid, randomnumberchar);
+	snprintf(str, strlength, "notification[from_screen_name]=%s&notification[message]=%s&notification[from_remote_service_id]=%s", from, message, randomnumberchar);
 	
 	printf("%s\n", str);
 	

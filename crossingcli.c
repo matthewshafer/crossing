@@ -1,6 +1,6 @@
-#import "lib/crossing.h"
-#import <stdio.h>
-#import <stdlib.h>
+#include "lib/crossing.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 
