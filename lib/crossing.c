@@ -32,13 +32,13 @@ int crossing_send_notification(crossing_data *data)
 	
 	// if we get a random number that is less than 10 characters then we dont cut off the end
 	snprintf(randomnumberchar, sizeof(randomnumberchar), "%d", r);
-	printf("%s\n", data->username);
-	printf("%s\n", data->password);
-	printf("%s\n", data->from);
-	printf("%s\n", data->message);
-	printf("rand: %s\n", randomnumberchar);
-	printf("rand len: %zi\n", strlen(randomnumberchar));
-	printf("OG rand: %i\n", r);
+	//printf("%s\n", data->username);
+	//printf("%s\n", data->password);
+	//printf("%s\n", data->from);
+	//printf("%s\n", data->message);
+	//printf("rand: %s\n", randomnumberchar);
+	//printf("rand len: %zi\n", strlen(randomnumberchar));
+	//printf("OG rand: %i\n", r);
 	
 	str = malloc(sizeof(char) * strlength);
 	
@@ -62,7 +62,7 @@ int crossing_send_notification(crossing_data *data)
 	res = curl_easy_perform(handle);
 	
 	// outputting the response and cleaning up the curl handle
-	printf("%i\n", res);
+	//printf("%i\n", res);
 	curl_easy_cleanup(handle);
 	
 	// freeing up memory we allocated
